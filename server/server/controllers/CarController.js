@@ -3,13 +3,13 @@ import { carsService } from "../services/CarsService";
 import BaseController from "../utils/BaseController";
 
 
-export class CarController extends BaseController{
-  constructor(){
+export class CarController extends BaseController {
+  constructor() {
     super('api/cars')
     this.router
-    .use(Auth0Provider.getAuthorizedUserInfo)
-    .get('', this.getAll)
-    .post('', this.create)
+      .get('', this.getAll)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .post('', this.create)
   }
 
   async getAll(req, res, next) {

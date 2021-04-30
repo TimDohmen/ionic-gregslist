@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Tabs from '../views/Tabs.vue'
-import {authGuard } from '@bcwdev/auth0provider-client'
+import { authGuard } from '@bcwdev/auth0provider-client'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab1',
         component: () => import('@/views/Tab1.vue'),
-        beforeEnter: authGuard
+        // beforeEnter: authGuard
       },
       {
         path: 'tab2',

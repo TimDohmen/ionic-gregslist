@@ -5,7 +5,25 @@ import bootstrap from 'bootstrap'
 import jquery from 'jquery'
 import popper from 'popper.js'
 
-import { IonicVue } from '@ionic/vue';
+import {
+  IonicVue,
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonCol,
+  IonCard,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonCardHeader,
+  IonGrid,
+  IonRow
+} from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -27,10 +45,13 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-  .use(IonicVue)
+  .use(IonicVue,
+    IonPage)
   .use(router)
-  .use(bootstrap, jquery, popper);
-  
+  .use(bootstrap)
+  .use(jquery)
+  .use(popper)
+
 router.isReady().then(() => {
   app.mount('#app');
 });

@@ -1,4 +1,4 @@
-import {audience, clientId,domain} from "../AuthConfig"
+import { audience, clientId, domain } from "../AuthConfig"
 import router from "../router/index"
 import { initialize } from '@bcwdev/auth0provider-client'
 import { setBearer } from "./AxiosService"
@@ -17,7 +17,7 @@ export const AuthService = initialize({
   }
 })
 
-AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function (){
+AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
 
   setBearer(AuthService.bearer)
   console.log(AuthService.user)
