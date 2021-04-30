@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3.vue')
+      },
+      {
+        path: 'account',
+        component: () => import('@/views/Account.vue'),
+        beforeEnter: authGuard
       }
     ]
   }

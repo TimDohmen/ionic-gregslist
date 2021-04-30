@@ -20,7 +20,7 @@
           <ion-icon :icon="person" />
           <ion-label>Login</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="account" v-else >
+        <ion-tab-button tab="account" v-else  href="/tabs/account">
           <!-- <ion-thumbnail>
             <ion-img :src="state.user.picture" />
           </ion-thumbnail> -->
