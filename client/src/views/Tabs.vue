@@ -16,6 +16,16 @@
           <ion-icon :icon="square" />
           <ion-label>Tab 3</ion-label>
         </ion-tab-button>
+        <ion-tab-button tab="login" @click="login" v-if="!state.user.isAuthenticated">
+          <ion-icon :icon="person" />
+          <ion-label>Login</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="account" v-else >
+          <ion-thumbnail>
+            <ion-img :src="state.user.picture" />
+          </ion-thumbnail>
+          <ion-label>{{state.user.name }}</ion-label>
+        </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
@@ -23,17 +33,32 @@
 
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, square, triangle, person } from 'ionicons/icons';
+import { AuthService } from '@/services/AuthService'
+import { computed, reactive } from 'vue';
+import { AppState } from '@/AppState';
 
 export default {
   name: 'Tabs',
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
+    const state= reactive({
+      user: computed(()=> AppState.user)
+    })
     return {
+      state,
       ellipse, 
       square, 
       triangle,
+      person,
+      async login(){
+          AuthService.loginWithPopup()
+      }
     }
   }
 }
 </script>
+
+<style>
+  
+</style>
