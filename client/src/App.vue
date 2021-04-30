@@ -1,6 +1,6 @@
 <template>
   <ion-app>
-    <ion-router-outlet />
+    <ion-router-outlet/>
   </ion-app>
 </template>
 
@@ -26,3 +26,9 @@ export default defineComponent({
   }
 });
 </script>
+
+
+<style >
+/* @import 'bootstrap'; */
+  
+</style>

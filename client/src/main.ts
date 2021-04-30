@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import bootstrap from 'bootstrap'
+import jquery from 'jquery'
+import popper from 'popper.js'
 
 import { IonicVue } from '@ionic/vue';
 
@@ -25,7 +28,8 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(bootstrap, jquery, popper);
   
 router.isReady().then(() => {
   app.mount('#app');
