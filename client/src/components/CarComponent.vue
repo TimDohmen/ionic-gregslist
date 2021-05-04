@@ -1,15 +1,20 @@
 <template>
   <ion-col size="4">
     <ion-card>
-      <ion-img :src="carProp.img"></ion-img>
       <!-- <img :src="carProp.img" /> -->
-      <ion-card-header>
-        <ion-card-subtitle>{{ carProp.make }}</ion-card-subtitle>
-        <ion-card-title>{{ carProp.model }}</ion-card-title>
+      <ion-card-header style="height=50%">
+        <ion-img class="full-image" :src="carProp.img"></ion-img>
       </ion-card-header>
       <ion-card-content>
-        {{ carProp.description }}
+        <ion-card-subtitle>{{ carProp.make }}</ion-card-subtitle>
+        <ion-card-title>{{ carProp.model }}</ion-card-title>
+        <p>
+          {{ carProp.description }}
+        </p>
       </ion-card-content>
+      <ion-button class="button button-full button-positive"
+        >View Car</ion-button
+      >
     </ion-card>
   </ion-col>
 </template>
@@ -23,6 +28,7 @@ import {
   IonCardContent,
   IonCardHeader,
   IonImg,
+  IonButton,
 } from "@ionic/vue";
 import { AppState } from "@/AppState";
 import { computed, reactive } from "vue";
@@ -45,6 +51,7 @@ export default {
     IonCardContent,
     IonCardHeader,
     IonImg,
+    IonButton,
   },
 };
 </script>

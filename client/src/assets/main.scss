@@ -1,0 +1,21 @@
+@import "bootstrap";
+@import "./_variables.scss";
+
+ion-card {
+    ion-img {
+        margin: 10px auto;
+        height: 25vh !important;
+        width: auto !important;
+        max-width: 85%;
+        align-items: center;
+    }
+
+    ion-card-content {
+        padding: 0 !important;
+
+        ion-card-title {        
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+    }
+}

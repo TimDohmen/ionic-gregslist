@@ -1,34 +1,34 @@
 <template>
   <ion-app>
-    <ion-router-outlet/>
+    <ion-router-outlet />
   </ion-app>
 </template>
 
 <script lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { IonApp, IonRouterOutlet } from "@ionic/vue";
 
-import { AppState } from '@/AppState';
-import { defineComponent, computed, reactive } from 'vue';
+import { AppState } from "@/AppState";
+import { defineComponent, computed, reactive } from "vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   setup() {
-    const state= reactive({
-      AppState: computed(()=> AppState)
-    })
+    const state = reactive({
+      AppState: computed(() => AppState),
+    });
     return {
       state,
-    }
+    };
   },
   components: {
     IonApp,
-    IonRouterOutlet
-  }
+    IonRouterOutlet,
+  },
 });
 </script>
 
 
-<style >
+<style lang="scss" >
 /* @import 'bootstrap'; */
-  
+@import "./assets/main.scss";
 </style>
