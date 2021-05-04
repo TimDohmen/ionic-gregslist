@@ -13,33 +13,40 @@
       </ion-header> -->
       <ion-grid>
         <ion-row v-if="state.user.isAuthenticated">
-          <ion-item>
-            <ion-label position="stacked">Car Data</ion-label>
-            <ion-input
-              v-model="state.newCar.make"
-              placeholder="Make"
-            ></ion-input>
-            <ion-input
-              v-model="state.newCar.model"
-              placeholder="Model"
-            ></ion-input>
-            <ion-input
-              v-model="state.newCar.description"
-              placeholder="Description"
-            ></ion-input>
-            <ion-input v-model="state.newCar.img" placeholder="Img"></ion-input>
-            <ion-input
-              name="price"
-              placeholder="Price"
-              type="number"
-              v-model="state.newCar.price"
-            ></ion-input>
-            <section class="full-width">
-              <ion-button expand="full" color="secondary" @click="createCar"
-                >Create Car!</ion-button
-              >
-            </section>
-          </ion-item>
+          <ion-col size="12">
+            <ion-label>Enter Car Stats</ion-label>
+          </ion-col>
+          <ion-col size="12">
+            <ion-item>
+              <ion-input
+                v-model="state.newCar.make"
+                placeholder="Make"
+              ></ion-input>
+              <ion-input
+                v-model="state.newCar.model"
+                placeholder="Model"
+              ></ion-input>
+              <ion-input
+                v-model="state.newCar.description"
+                placeholder="Description"
+              ></ion-input>
+              <ion-input
+                v-model="state.newCar.img"
+                placeholder="Img"
+              ></ion-input>
+              <ion-input
+                name="price"
+                placeholder="Price"
+                type="number"
+                v-model="state.newCar.price"
+              ></ion-input>
+              <section class="full-width">
+                <ion-button expand="full" color="secondary" @click="createCar"
+                  >Create Car!</ion-button
+                >
+              </section>
+            </ion-item>
+          </ion-col>
         </ion-row>
         <ion-row>
           <!-- <ExploreContainer name="Tab 1 page" /> -->
@@ -60,8 +67,9 @@ import CarComponent from "@/components/CarComponent.vue";
 import { AppState } from "@/AppState";
 import { computed, onMounted, reactive } from "vue";
 import { carsService } from "@/services/CarsService";
+import { IonItem, IonLabel, IonHeader, IonTitle, IonToolbar } from "@ionic/vue";
 export default {
-  name: "Tab1",
+  name: "Cars",
   setup() {
     onMounted(() => {
       carsService.getCars();
@@ -80,6 +88,11 @@ export default {
   },
   components: {
     CarComponent,
+    IonLabel,
+    IonItem,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
   },
 };
 </script>

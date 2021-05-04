@@ -2,29 +2,33 @@
   <ion-page>
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="tab1" href="/tabs/tab1">
+        <ion-tab-button tab="cars" href="/tabs/cars">
           <ion-icon :icon="triangle" />
           <ion-label>Cars</ion-label>
         </ion-tab-button>
-          
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
+
+        <ion-tab-button tab="jobs" href="/tabs/jobs">
           <ion-icon :icon="ellipse" />
           <ion-label>Jobs</ion-label>
         </ion-tab-button>
-        
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
+
+        <ion-tab-button tab="homes" href="/tabs/homes">
           <ion-icon :icon="square" />
           <ion-label>Houses</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="login" @click="login" v-if="!state.user.isAuthenticated">
+        <ion-tab-button
+          tab="login"
+          @click="login"
+          v-if="!state.user.isAuthenticated"
+        >
           <ion-icon :icon="person" />
           <ion-label>Login</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="account" v-else  href="/tabs/account">
+        <ion-tab-button tab="account" v-else href="/tabs/account">
           <!-- <ion-thumbnail>
             <ion-img :src="state.user.picture" />
           </ion-thumbnail> -->
-          <ion-label>{{state.user.name }}</ion-label>
+          <ion-label>{{ state.user.name }}</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -32,33 +36,39 @@
 </template>
 
 <script lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
-import { ellipse, square, triangle, person } from 'ionicons/icons';
-import { AuthService } from '@/services/AuthService'
-import { computed, reactive } from 'vue';
-import { AppState } from '@/AppState';
+import {
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonLabel,
+  IonIcon,
+  IonPage,
+} from "@ionic/vue";
+import { ellipse, square, triangle, person } from "ionicons/icons";
+import { AuthService } from "@/services/AuthService";
+import { computed, reactive } from "vue";
+import { AppState } from "@/AppState";
 
 export default {
-  name: 'Tabs',
+  name: "Tabs",
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
-    const state= reactive({
-      user: computed(()=> AppState.user)
-    })
+    const state = reactive({
+      user: computed(() => AppState.user),
+    });
     return {
       state,
-      ellipse, 
-      square, 
+      ellipse,
+      square,
       triangle,
       person,
-      async login(){
-          AuthService.loginWithPopup()
-      }
-    }
-  }
-}
+      async login() {
+        AuthService.loginWithPopup();
+      },
+    };
+  },
+};
 </script>
 
 <style>
-  
 </style>

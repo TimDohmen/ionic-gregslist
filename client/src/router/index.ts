@@ -6,7 +6,7 @@ import { authGuard } from '@bcwdev/auth0provider-client'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab2'
+    redirect: '/tabs/cars'
   },
   {
     path: '/tabs/',
@@ -17,16 +17,16 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/tabs/tab2'
       },
       {
-        path: 'tab1',
+        path: 'cars',
         component: () => import('@/views/Cars.vue'),
         // beforeEnter: authGuard
       },
       {
-        path: 'tab2',
+        path: 'homes',
         component: () => import('@/views/Houses.vue')
       },
       {
-        path: 'tab3',
+        path: 'jobs',
         component: () => import('@/views/Jobs.vue')
       },
       {

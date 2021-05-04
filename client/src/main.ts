@@ -11,7 +11,9 @@ import {
   IonCol,
   IonGrid,
   IonRow,
-  IonContent
+  IonContent,
+  IonInput,
+  IonButton
 } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -44,6 +46,8 @@ app.component('ion-grid', IonGrid)
 app.component('ion-row', IonRow)
 app.component('ion-col', IonCol)
 app.component('ion-content', IonContent)
+app.component('ion-input', IonInput)
+app.component('ion-button', IonButton)
 
 router.isReady().then(() => {
   app.mount('#app');

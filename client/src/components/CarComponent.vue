@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import {
-  IonCol,
   IonCard,
   IonCardSubtitle,
   IonCardTitle,
@@ -41,10 +40,9 @@ export default {
     const state = reactive({
       cars: computed(() => AppState.cars),
     });
-    return {};
+    return { state };
   },
   components: {
-    IonCol,
     IonCard,
     IonCardSubtitle,
     IonCardTitle,
