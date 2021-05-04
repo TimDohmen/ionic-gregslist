@@ -13,7 +13,10 @@ import {
   IonRow,
   IonContent,
   IonInput,
-  IonButton
+  IonButton,
+  IonFab,
+  IonFabList,
+  IonIcon,
 } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -48,6 +51,9 @@ app.component('ion-col', IonCol)
 app.component('ion-content', IonContent)
 app.component('ion-input', IonInput)
 app.component('ion-button', IonButton)
+app.component('ion-fab-list', IonFabList)
+app.component('ion-fab', IonFab)
+app.component('ion-icon', IonIcon)
 
 router.isReady().then(() => {
   app.mount('#app');

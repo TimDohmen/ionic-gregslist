@@ -6,47 +6,11 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <!-- <ion-header collapse="condense" class="col-12">
-        <ion-toolbar>
-          <ion-title size="large">Carsz</ion-title>
-        </ion-toolbar>
-      </ion-header> -->
       <ion-grid>
         <ion-row v-if="state.user.isAuthenticated">
           <ion-col size="12">
             <ion-label>Enter Car Stats</ion-label>
           </ion-col>
-          <!-- <ion-col size="12" class="">
-            <ion-item>
-              <ion-input
-                v-model="state.newCar.make"
-                placeholder="Make"
-              ></ion-input>
-              <ion-input
-                v-model="state.newCar.model"
-                placeholder="Model"
-              ></ion-input>
-              <ion-input
-                v-model="state.newCar.description"
-                placeholder="Description"
-              ></ion-input>
-              <ion-input
-                v-model="state.newCar.img"
-                placeholder="Img"
-              ></ion-input>
-              <ion-input
-                name="price"
-                placeholder="Price"
-                type="number"
-                v-model="state.newCar.price"
-              ></ion-input>
-              <section class="full-width">
-                <ion-button expand="full" color="secondary" @click="createCar"
-                  >Create Car!</ion-button
-                >
-              </section>
-            </ion-item>
-          </ion-col> -->
 
           <ion-col size="3">
             <ion-item>
@@ -105,7 +69,6 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <!-- <ExploreContainer name="Tab 1 page" /> -->
           <CarComponent
             v-for="car in state.cars"
             :key="car._id"
@@ -118,11 +81,16 @@
 </template>
 
 <script lang="ts">
-// import ExploreContainer from '@/components/ExploreContainer.vue';
 import CarComponent from "@/components/CarComponent.vue";
 import { AppState } from "@/AppState";
 import { computed, onMounted, reactive } from "vue";
 import { carsService } from "@/services/CarsService";
+import {
+  add,
+  settings,
+  exitOutline,
+  personCircleOutline,
+} from "ionicons/icons";
 import { IonItem, IonLabel, IonHeader, IonTitle, IonToolbar } from "@ionic/vue";
 export default {
   name: "Cars",
@@ -136,6 +104,10 @@ export default {
       newCar: {},
     });
     return {
+      personCircleOutline,
+      exitOutline,
+      add,
+      settings,
       state,
       createCar() {
         carsService.createCar(state.newCar);

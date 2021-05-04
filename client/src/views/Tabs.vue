@@ -1,5 +1,24 @@
 <template>
   <ion-page>
+    <ion-fab vertical="" horizontal="end" edge slot="fixed" class="mr-3">
+      <ion-fab-button>
+        <ion-icon :icon="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom" v-if="state.user.isAuthenticated">
+        <ion-fab-button @click="viewProfile"
+          ><ion-icon :icon="personCircleOutline"></ion-icon
+        ></ion-fab-button>
+        <ion-fab-button @click="logout"
+          ><ion-icon :icon="exitOutline"></ion-icon
+        ></ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list side="bottom" v-else>
+        <ion-fab-button @click="login"
+          ><ion-icon :icon="enterOutline"></ion-icon
+        ></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
     <ion-tabs>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="cars" href="/tabs/cars">
@@ -16,28 +35,14 @@
           <ion-icon :icon="square" />
           <ion-label>Houses</ion-label>
         </ion-tab-button>
-        <ion-tab-button
+        <!-- <ion-tab-button
           tab="login"
           @click="login"
           v-if="!state.user.isAuthenticated"
         >
           <ion-icon :icon="person" />
           <ion-label>Login</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="account" v-else href="/tabs/account">
-          <!-- <ion-thumbnail>
-            <ion-img :src="state.user.picture" />
-          </ion-thumbnail> -->
-          <ion-label>{{ state.user.name }}</ion-label>
-        </ion-tab-button>
-        <ion-tab-button
-          tab="logout"
-          v-if="state.user.isAuthenticated"
-          @click="logout"
-        >
-          <ion-icon :icon="exitOutline"></ion-icon>
-          <ion-label>Logout</ion-label>
-        </ion-tab-button>
+        </ion-tab-button> -->
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
@@ -52,15 +57,27 @@ import {
   IonIcon,
   IonPage,
 } from "@ionic/vue";
-import { ellipse, square, triangle, person, exitOutline } from "ionicons/icons";
+import {
+  ellipse,
+  square,
+  triangle,
+  person,
+  add,
+  personCircleOutline,
+  exitOutline,
+  enterOutline,
+} from "ionicons/icons";
+
 import { AuthService } from "@/services/AuthService";
 import { computed, reactive } from "vue";
 import { AppState } from "@/AppState";
+import { useRouter } from "vue-router";
 
 export default {
   name: "Tabs",
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
+    const router = useRouter();
     const state = reactive({
       user: computed(() => AppState.user),
     });
@@ -71,11 +88,17 @@ export default {
       triangle,
       person,
       exitOutline,
+      enterOutline,
+      add,
+      personCircleOutline,
       async login() {
         AuthService.loginWithPopup();
       },
       async logout() {
         AuthService.logout();
+      },
+      viewProfile() {
+        router.push({ name: "Account" });
       },
     };
   },
