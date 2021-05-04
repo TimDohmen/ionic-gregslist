@@ -8,7 +8,7 @@ class CarsService {
   }
 
   async findOne(query = {}) {
-    const cars = await dbContext.Cars.findOne(query)
+    const cars = await dbContext.Cars.findOne(query).populate("creator")
     return cars
   }
 
