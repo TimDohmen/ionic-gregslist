@@ -8,13 +8,21 @@ export class CarController extends BaseController {
     super('api/cars')
     this.router
       .get('', this.getAll)
+      .get('/:_id', this.getOne)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
   }
 
   async getAll(req, res, next) {
     try {
-      res.send(await carsService.find(req.params))
+      res.send(await carsService.find(req.query))
+    } catch (error) {
+      next(error)
+    }
+  }
+  async getOne(req, res, next) {
+    try {
+      res.send(await carsService.findOne(req.params))
     } catch (error) {
       next(error)
     }

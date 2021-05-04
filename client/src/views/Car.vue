@@ -26,17 +26,24 @@
 <script lang="ts">
 // import ExploreContainer from '@/components/ExploreContainer.vue';
 import { AppState } from "@/AppState";
-import { computed, onMounted, reactive } from "vue";
+import { computed, onBeforeUpdate, onMounted, reactive } from "vue";
 import { carsService } from "@/services/CarsService";
 import { IonHeader, IonTitle, IonToolbar } from "@ionic/vue";
 import { useRoute } from "vue-router";
+import beforeRouteEnter from "../router/index";
 export default {
   name: "Cars",
+  beforeRouteEnter(to, from, next) {
+    carsService.getCar(to.params.id);
+    next();
+  },
   setup() {
     const route = useRoute();
-    onMounted(() => {
-      carsService.getCar(route.params.id);
-    });
+    // onBeforeUpdate(() => {
+    //   carsService.getCar(route.params.id);
+    // });
+    // onMounted(() => {});
+
     const state = reactive({
       car: computed(() => AppState.car),
       user: computed(() => AppState.user),

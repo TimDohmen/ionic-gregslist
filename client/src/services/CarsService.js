@@ -14,7 +14,7 @@ class CarsService {
   }
   async getCar(id) {
     try {
-      const res = await api.get(`/api/car/${id}`)
+      const res = await api.get(`/api/cars/${id}`)
       console.log(res.data)
       AppState.car = res.data
     } catch (error) {

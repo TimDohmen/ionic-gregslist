@@ -1,13 +1,18 @@
 import { dbContext } from "../db/DbContext";
 
-class CarsService{
+class CarsService {
 
-  async find(query = {}){
+  async find(query = {}) {
     const cars = await dbContext.Cars.find(query)
     return cars
   }
 
-  async create(body){
+  async findOne(query = {}) {
+    const cars = await dbContext.Cars.findOne(query)
+    return cars
+  }
+
+  async create(body) {
     const car = await dbContext.Cars.create(body)
     return car
   }

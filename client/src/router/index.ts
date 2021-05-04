@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Tabs from '../views/Tabs.vue'
 import { authGuard } from '@bcwdev/auth0provider-client'
+import { carsService } from "../services/CarsService.js"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,10 +13,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tabs/',
     component: Tabs,
     children: [
-      {
-        path: '',
-        redirect: '/tabs/tab2'
-      },
       {
         path: 'cars',
         component: () => import('@/views/Cars.vue'),
@@ -33,14 +30,15 @@ const routes: Array<RouteRecordRaw> = [
         path: 'account',
         component: () => import('@/views/Account.vue'),
         beforeEnter: authGuard
+      },
+      {
+        path: "car/:id",
+        name: "CarDetails",
+        component: () => import('@/views/Car.vue'),
       }
     ]
   },
-  {
-    path: "/car/:id",
-    name: "CarDetails",
-    component: () => import('@/views/Car.vue')
-  }
+
 ]
 
 const router = createRouter({
