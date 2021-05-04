@@ -8,12 +8,13 @@
       <ion-card-content>
         <ion-card-subtitle>{{ carProp.make }}</ion-card-subtitle>
         <ion-card-title>{{ carProp.model }}</ion-card-title>
-        <p>
+        <p>{{ carProp.mileage }} Miles</p>
+        <p class="overflow">
           {{ carProp.description }}
         </p>
       </ion-card-content>
       <ion-button class="button button-full button-positive"
-        >View Car</ion-button
+        >View Car Details</ion-button
       >
     </ion-card>
   </ion-col>
@@ -62,4 +63,9 @@ export default {
 </script>
 
 <style scoped>
+.overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>

@@ -30,6 +30,14 @@
           </ion-thumbnail> -->
           <ion-label>{{ state.user.name }}</ion-label>
         </ion-tab-button>
+        <ion-tab-button
+          tab="logout"
+          v-if="state.user.isAuthenticated"
+          @click="logout"
+        >
+          <ion-icon :icon="exitOutline"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
@@ -44,7 +52,7 @@ import {
   IonIcon,
   IonPage,
 } from "@ionic/vue";
-import { ellipse, square, triangle, person } from "ionicons/icons";
+import { ellipse, square, triangle, person, exitOutline } from "ionicons/icons";
 import { AuthService } from "@/services/AuthService";
 import { computed, reactive } from "vue";
 import { AppState } from "@/AppState";
@@ -62,8 +70,12 @@ export default {
       square,
       triangle,
       person,
+      exitOutline,
       async login() {
         AuthService.loginWithPopup();
+      },
+      async logout() {
+        AuthService.logout();
       },
     };
   },

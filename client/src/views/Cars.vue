@@ -16,7 +16,7 @@
           <ion-col size="12">
             <ion-label>Enter Car Stats</ion-label>
           </ion-col>
-          <ion-col size="12">
+          <!-- <ion-col size="12" class="">
             <ion-item>
               <ion-input
                 v-model="state.newCar.make"
@@ -46,6 +46,62 @@
                 >
               </section>
             </ion-item>
+          </ion-col> -->
+
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                v-model="state.newCar.make"
+                placeholder="Make"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                v-model="state.newCar.model"
+                placeholder="Model"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                v-model="state.newCar.description"
+                placeholder="Description"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                v-model="state.newCar.img"
+                placeholder="Img"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                name="price"
+                placeholder="Price"
+                type="number"
+                v-model="state.newCar.price"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-item>
+              <ion-input
+                name="mileage"
+                placeholder="Mileage"
+                type="number"
+                v-model="state.newCar.mileage"
+              ></ion-input> </ion-item
+          ></ion-col>
+          <ion-col size="3">
+            <ion-button
+              expand="block"
+              class=""
+              color="secondary"
+              @click="createCar"
+              >Create Car!</ion-button
+            >
           </ion-col>
         </ion-row>
         <ion-row>
@@ -83,6 +139,7 @@ export default {
       state,
       createCar() {
         carsService.createCar(state.newCar);
+        state.newCar = {};
       },
     };
   },
@@ -96,3 +153,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>

@@ -2,7 +2,12 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>{{ state.car.make + " " + state.car.model }}</ion-title>
+        <ion-title>
+          <h3>
+            {{ state.car.make + " " + state.car.model }}
+          </h3>
+          <p>{{ state.car.mileage }} Miles</p>
+        </ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
