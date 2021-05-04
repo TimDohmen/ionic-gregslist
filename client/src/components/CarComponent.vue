@@ -1,5 +1,5 @@
 <template>
-  <ion-col size="4" @click="viewCar">
+  <ion-col size-md="4" @click="viewCar">
     <ion-card>
       <!-- <img :src="carProp.img" /> -->
       <ion-card-header style="height=50%">
