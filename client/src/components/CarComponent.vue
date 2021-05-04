@@ -1,7 +1,8 @@
 <template>
   <ion-col size="4">
     <ion-card>
-      <img :src="carProp.img" />
+      <ion-img :src="carProp.img"></ion-img>
+      <!-- <img :src="carProp.img" /> -->
       <ion-card-header>
         <ion-card-subtitle>{{ carProp.make }}</ion-card-subtitle>
         <ion-card-title>{{ carProp.model }}</ion-card-title>
@@ -21,6 +22,7 @@ import {
   IonCardTitle,
   IonCardContent,
   IonCardHeader,
+  IonImg,
 } from "@ionic/vue";
 import { AppState } from "@/AppState";
 import { computed, reactive } from "vue";
@@ -42,6 +44,7 @@ export default {
     IonCardTitle,
     IonCardContent,
     IonCardHeader,
+    IonImg,
   },
 };
 </script>

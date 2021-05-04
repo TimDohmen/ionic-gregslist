@@ -8,21 +8,10 @@ import popper from 'popper.js'
 import {
   IonicVue,
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonInput,
-  IonItem,
-  IonLabel,
   IonCol,
-  IonCard,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonCardContent,
-  IonCardHeader,
   IonGrid,
-  IonRow
+  IonRow,
+  IonContent
 } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -45,12 +34,16 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 const app = createApp(App)
-  .use(IonicVue,
-    IonPage)
+  .use(IonicVue)
   .use(router)
   .use(bootstrap)
-  .use(jquery)
-  .use(popper)
+  .use(jquery, popper)
+
+app.component('ion-page', IonPage)
+app.component('ion-grid', IonGrid)
+app.component('ion-row', IonRow)
+app.component('ion-col', IonCol)
+app.component('ion-content', IonContent)
 
 router.isReady().then(() => {
   app.mount('#app');

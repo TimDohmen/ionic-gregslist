@@ -19,8 +19,8 @@ export const AuthService = initialize({
 
 AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
 
-  setBearer(AuthService.bearer)
   console.log(AuthService.user)
+  setBearer(AuthService.bearer)
   AppState.user = AuthService.user
   await accountService.getAccount()
 
