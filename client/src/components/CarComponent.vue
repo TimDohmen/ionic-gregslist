@@ -1,5 +1,5 @@
 <template>
-  <ion-col size="4">
+  <ion-col size="4" @click="viewCar">
     <ion-card>
       <!-- <img :src="carProp.img" /> -->
       <ion-card-header style="height=50%">
@@ -31,16 +31,23 @@ import {
 } from "@ionic/vue";
 import { AppState } from "@/AppState";
 import { computed, reactive } from "vue";
+import { useRouter } from "vue-router";
 export default {
   name: "CarComponent",
   props: {
     carProp: { type: Object, required: true },
   },
-  setup() {
+  setup(props) {
+    const router = useRouter();
     const state = reactive({
       cars: computed(() => AppState.cars),
     });
-    return { state };
+    return {
+      state,
+      viewCar() {
+        router.push({ name: "CarDetails", params: { id: props.carProp.id } });
+      },
+    };
   },
   components: {
     IonCard,

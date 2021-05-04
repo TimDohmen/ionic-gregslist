@@ -35,6 +35,11 @@ const routes: Array<RouteRecordRaw> = [
         beforeEnter: authGuard
       }
     ]
+  },
+  {
+    path: "/car/:id",
+    name: "CarDetails",
+    component: () => import('@/views/Car.vue')
   }
 ]
 
