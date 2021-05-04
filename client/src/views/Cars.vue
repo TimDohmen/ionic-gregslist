@@ -1,11 +1,11 @@
 <template>
   <ion-page>
-    <ion-header class="row">
+    <ion-header>
       <ion-toolbar>
         <ion-title>Cars</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true" class="row">
+    <ion-content :fullscreen="true">
       <!-- <ion-header collapse="condense" class="col-12">
         <ion-toolbar>
           <ion-title size="large">Carsz</ion-title>
