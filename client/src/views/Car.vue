@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>
+        <ion-title class="mt-5 mt-md-3">
           <h3>
             {{ state.car.make + " " + state.car.model }}
           </h3>
